@@ -8,7 +8,8 @@ public class SummaryStatistics {
 	private final double min;
 	private final double average;
 	
-	public SummaryStatistics(final double sum, final double max, final double min, final double average) {
+	public SummaryStatistics(final double sum, final double max, 
+			final double min, final double average) {
 		this.sum = sum;
 		this.max = max;
 		this.min = min;
