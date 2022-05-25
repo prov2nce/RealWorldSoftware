@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.chapter_2.BankTransaction;
+import com.chapter_3.interf.BankTransactionFilter;
 
 public class BankTransactionProcessor {
 	private final List<BankTransaction> bankTransactions;
