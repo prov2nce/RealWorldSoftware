@@ -1,6 +1,9 @@
 package com.chapter_6;
 
 import java.security.SecureRandom;
+
+import org.bouncycastle.crypto.generators.SCrypt;
+
 import static java.nio.charset.StandardCharsets.UTF_16;
 
 //6-5

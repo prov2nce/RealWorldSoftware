@@ -29,7 +29,6 @@ public class Twootr {
         Objects.requireNonNull(userId, "userId");
         Objects.requireNonNull(password, "password");
 
-        // tag::optional_onLogon[]
         var authenticatedUser = userRepository
             .get(userId)
             .filter(userOfSameId ->
@@ -50,7 +49,7 @@ public class Twootr {
         });
 
         return authenticatedUser.map(user -> new SenderEndPoint(user, this));
-        // end::optional_onLogon[]
+
     }
 
     public RegistrationStatus onRegisterUser(final String userId, final String password) {
@@ -69,7 +68,7 @@ public class Twootr {
     Position onSendTwoot(final String id, final User user, final String content) {
         var userId = user.getId();
         var twoot = twootRepository.add(id, userId, content);
-        // tag::stream_onSendTwoot[]
+        
         user.followers()
             .filter(User::isLoggedOn)
             .forEach(follower ->
@@ -77,7 +76,6 @@ public class Twootr {
                 follower.receiveTwoot(twoot);
                 userRepository.update(follower);
             });
-        // end::stream_onSendTwoot[]
 
         return twoot.getPosition();
     }
